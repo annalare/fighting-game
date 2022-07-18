@@ -14,6 +14,15 @@ const background = new Sprite({
   },
   imageSrc: "./img/background.png",
 });
+const shop = new Sprite({
+  position: {
+    x: 600,
+    y: 128,
+  },
+  imageSrc: "./img/shop.png",
+  scale: 2.75,
+  framesMax: 6,
+});
 const player = new Fighter({
   position: {
     x: 0,
@@ -21,11 +30,26 @@ const player = new Fighter({
   },
   velocity: {
     x: 0,
-    y: 10,
+    y: 0,
   },
   offset: {
     x: 0,
     y: 0,
+  },
+  imageSrc: "./img/samurai/Idle.png",
+  framesMax: 8,
+  scale: 2.5,
+  offset: { x: 215, y: 157 },
+  sprites: {
+    idle: {
+      imageSrc: "./img/samurai/Idle.png",
+      framesMax: 8,
+    },
+    run: {
+      imageSrc: "./img/samurai/Run.png",
+      framesMax: 8,
+      image: new Image(),
+    },
   },
 });
 
@@ -69,16 +93,19 @@ function animate() {
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height);
   background.update();
+  shop.update();
   player.update();
-  enemy.update();
+  //enemy.update();
 
   player.velocity.x = 0;
   enemy.velocity.x = 0;
-
+  player.image = player.sprites.idle.image;
   if (keys.a.pressed && player.lastKey === "a") {
     player.velocity.x = -5;
+    player.image = player.sprites.run.image;
   } else if (keys.d.pressed && player.lastKey === "d") {
     player.velocity.x = 5;
+    player.image = player.sprites.run.image;
   }
   if (keys.ArrowLeft.pressed && enemy.lastKey === "ArrowLeft") {
     enemy.velocity.x = -5;
