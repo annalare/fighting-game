@@ -65,7 +65,7 @@ const player = new Fighter({
       framesMax: 6,
     },
     takeHit: {
-      imageSrc: "./img/samurai/Take Hit - white silhouette.png",
+      imageSrc: "./img/samurai/TakeHitwhite.png",
       framesMax: 4,
     },
     death: {
@@ -125,6 +125,10 @@ const enemy = new Fighter({
     attack1: {
       imageSrc: "./img/kenji/Attack1.png",
       framesMax: 4,
+    },
+    takeHit: {
+      imageSrc: "./img/kenji/Takehit.png",
+      framesMax: 3,
     },
   },
   attackBox: {
@@ -200,7 +204,7 @@ function animate() {
   } else if (enemy.velocity.y > 0) {
     enemy.switchSprite("fall");
   }
-
+  //detect collision e enemy gets hit
   if (
     retangularCollision({
       rectangle1: player,
@@ -209,8 +213,9 @@ function animate() {
     player.isAttacking &&
     player.framesCurrent === 4
   ) {
+    enemy.takeHit();
     player.isAttacking = false;
-    enemy.health -= 20;
+
     document.querySelector("#enemyHealth").style.width = enemy.health + "%";
   }
 
@@ -218,6 +223,7 @@ function animate() {
   if (player.isAttacking && player.framesCurrent === 4) {
     player.isAttacking = false;
   }
+  //this os where our plaet gets hit
   if (
     retangularCollision({
       rectangle1: enemy,
@@ -226,8 +232,8 @@ function animate() {
     enemy.isAttacking &&
     enemy.framesCurrent === 2
   ) {
+    player.takeHit();
     enemy.isAttacking = false;
-    player.health -= 20;
     document.querySelector("#playerHealth").style.width = player.health + "%";
   }
   //if enemy misses
