@@ -2,7 +2,7 @@
 
 ###
 
-<p> Game project feito apartir da aula do youtuber Chris Cousers em conjunto com conhecimentos adquiridos pela Gama Academy e a Alura. </p>
+<p> Game project feito a partir da aula do youtuber Chris Cousers em conjunto com conhecimentos adquiridos pela Gama Academy e a Alura. </p>
 
 ###
 
