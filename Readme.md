@@ -2,11 +2,11 @@
 
 ###
 
-<p align="left"> Game project feito apartir da aula do youtuber Chris Cousers em conjunto com conhecimentos adquiridos pela Gama Academy e a Alura. </p>
+<p> Game project feito apartir da aula do youtuber Chris Cousers em conjunto com conhecimentos adquiridos pela Gama Academy e a Alura. </p>
 
 ###
 
-# Ferramentas utilizadas
+<h2> Ferramentas utilizadas <h2>
 
  <br>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" width="52" alt="css3 logo"  />
